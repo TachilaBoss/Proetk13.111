@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}Alabyga Politex Chats</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        background: linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
+        background: linear-gradient(-45deg, #000000 0, #000000 25%, #1254af 50%, #000000 75%, #000000 100%);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+      }
+
+    .messages {
+        height: 400px;
+        overflow-y: auto;
+      }
+
+    .video-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        overflow: hidden;
+      }
+
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="flex items-center justify-between px-4 py-6 bg-black">
+      <div>
+        <a href="/" class="text-xl text-white font-bold">Alabyga Politex 4at</a>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        {% if request.user.is_authenticated %}
+          <a href="/rooms/" class="text-white hover:text-gray-200">Rooms</a>
+          <a href="/logout/" class="px-5 py-3 rounded-xl text-white bg-gray-600 hover:bg-gray-700">Log out</a>
+        {% else %}
+          <a href="/login/" class="text-white hover:text-gray-200">Log in</a>
+          <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-gray-600 hover:bg-gray-700">Sign up</a>
+        {% endif %}
+      </div>
+    </nav>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-black h-16">
+      <div class="flex items-center justify-center h-full">
+        <p class="text-white text-center">Best Chat Alabyga Politex Predstavliaet</p>
+      </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>

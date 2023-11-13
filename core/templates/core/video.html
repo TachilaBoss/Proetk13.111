@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="video-container">
+    <video autoplay muted loop class="w-full h-full object-cover">
+      <source src="{{ video.url }}" type="video/mp4">
+    </video>
+  </div>
+{% endblock %}
